@@ -134,16 +134,16 @@ const Quiz = () => {
   const percentageScore = Math.round((score / quizQuestions.length) * 100);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-green-400 via-blue-500 to-purple-600 p-6">
-      <div className="w-full max-w-3xl p-10 bg-white rounded-lg shadow-2xl transition-transform transform hover:scale-105">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-green-400 via-blue-500 to-purple-600 p-4 md:p-6">
+      <div className="w-full max-w-lg md:max-w-3xl p-4 md:p-10 bg-white rounded-lg shadow-2xl transition-transform transform hover:scale-105">
         {showScore ? (
           <div className="text-center">
-            <h2 className="text-4xl font-bold text-gray-800 mb-6">
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-800 mb-4 md:mb-6">
               You scored {score} out of {quizQuestions.length}! (
               {percentageScore}%)
             </h2>
             <p
-              className={`text-2xl font-semibold mb-4 ${
+              className={`text-xl md:text-2xl font-semibold mb-4 ${
                 percentageScore >= 50 ? "text-green-600" : "text-red-600"
               }`}
             >
@@ -152,7 +152,7 @@ const Quiz = () => {
                 : "Better luck next time!"}
             </p>
             <button
-              className="mt-6 px-6 py-2 text-lg font-semibold text-white bg-indigo-500 rounded-full hover:bg-indigo-600 transition-colors"
+              className="mt-4 md:mt-6 px-4 md:px-6 py-2 text-lg font-semibold text-white bg-indigo-500 rounded-full hover:bg-indigo-600 transition-colors"
               onClick={resetQuiz}
             >
               Retry Quiz
@@ -160,15 +160,15 @@ const Quiz = () => {
           </div>
         ) : (
           <div className="text-center">
-            <h2 className="mb-8 text-3xl font-bold text-gray-900 tracking-wide leading-relaxed">
+            <h2 className="mb-6 md:mb-8 text-2xl md:text-3xl font-bold text-gray-900 tracking-wide leading-relaxed">
               {quizQuestions[currentQuestionIndex].question}
             </h2>
-            <div className="space-y-4">
+            <div className="space-y-3 md:space-y-4">
               {quizQuestions[currentQuestionIndex].options.map((option) => (
                 <button
                   key={option}
                   onClick={() => handleAnswer(option)}
-                  className="w-full px-6 py-3 text-lg font-semibold text-white bg-blue-600 rounded-lg shadow-md hover:bg-blue-700 hover:shadow-lg transition-all duration-200 ease-in-out transform hover:scale-105"
+                  className="w-full px-4 py-2 md:px-6 md:py-3 text-md md:text-lg font-semibold text-white bg-blue-600 rounded-lg shadow-md hover:bg-blue-700 hover:shadow-lg transition-all duration-200 ease-in-out transform hover:scale-105"
                 >
                   {option}
                 </button>
